@@ -1,0 +1,44 @@
+#books-list{
+    margin-top: 30px;
+    justify-content: space-around;
+    gap: 20px;
+    row-gap: 45px;
+}
+
+#books-list div.card{
+    height: 420px;
+    max-width: 25%;
+    justify-content: space-around;
+    border: none;
+    border-radius: 5px;
+    
+}
+
+#books-list div.card:hover{
+   box-shadow: 3px 3px 20px rgb(178, 178, 178);
+    
+}
+
+
+#books-list.row div.card img.card-img-top{
+ height: 300px;
+ object-fit: cover;
+}
+
+#books-list.row div.card div.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   }
+
+#books-list.row div.card div.card-body div.card-title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+   }
+
