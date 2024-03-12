@@ -1,28 +1,62 @@
 import React from "react";
 import "./AllTheBooks.css";
-
-import { Card, Button } from 'react-bootstrap';
-
+import { Form, Col, Row } from 'react-bootstrap';
+import { useState } from 'react';
 import Data from "../Data/fantasy.json";
+import SingleBook from "../SingleBook/SingleBook";
 
 
 export default function AllTheBooks() {
 
-    return (
-      Data.map((el, index) =>(
-      <Card className="col-md-4">
-      <Card.Img variant="top" src={el.img} />
-      <Card.Body>
-        <Card.Title>{el.title}</Card.Title>
-        <Button variant="primary">Buy</Button>
-      </Card.Body>
-      </Card>
-      )
+  const [inputTitle, setInputTitle] = useState("");
+  const [books, setBooks] = useState(Data);
+ 
 
-        
+  async function lookForBook(e){
+    setInputTitle(e);
+    let filteredBooks = books.filter((book) =>
+    book.title.toLowerCase().includes(inputTitle.toLowerCase()));
+    setBooks(filteredBooks);
+  }
+  
+
+
+    return (
+      <>
+      <div className="container-fluid">
+          <Form>
+              <Row>
+                <Form.Group as={Col} md="4" controlId="validationCustom01">
+                  <Form.Label>Books</Form.Label>
+                  <Form.Control
+                    value={inputTitle}
+                    type="text"
+                    placeholder="Search"
+                    onChange={(e) => lookForBook(e.target.value)}
+                    />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                </Form.Group>
+              </Row>
+              
+          </Form>
+      </div>
+      
+      
+      <div className='row' id='books-list'>
+       { books.map((el) =>(
+        <SingleBook 
+        key= {el.id}
+        title={el.title}
+        img= {el.img}
+        />
+
+        ))}
+          
+      </div>
+
+
+      </>
       )
    
-    
-
-)
+  
 }
