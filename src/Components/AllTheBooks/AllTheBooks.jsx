@@ -12,9 +12,9 @@ export default function AllTheBooks() {
   const [books, setBooks] = useState(Data);
  
 
-  async function lookForBook(e){
+ function lookForBook(e){
     setInputTitle(e);
-    let filteredBooks = books.filter((book) =>
+    let filteredBooks = Data.filter((book) =>
     book.title.toLowerCase().includes(inputTitle.toLowerCase()));
     setBooks(filteredBooks);
   }
