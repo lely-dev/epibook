@@ -48,6 +48,7 @@ export default function AllTheBooks() {
         key= {el.asin}
         title={el.title}
         img= {el.img}
+        elementId={el.asin}
         />
 
         ))}

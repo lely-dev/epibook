@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState, useCallback} from 'react';
 import CommentList from './CommentList';
 import AddComment from './AddComment';
+import SingleBook from '../SingleBook/SingleBook';
 
 
 // fetch("https://striveschool-api.herokuapp.com/api/put-your-endpoint-here/", {
@@ -10,8 +11,10 @@ import AddComment from './AddComment';
 // }
 // })
 
-export default function CommentArea() {
+export default function CommentArea(props) {
 
+    const {elementId} = props;
+    
     const [result, setResult] = useState([]);
 
     const apiEndpoint = 'https://striveschool-api.herokuapp.com/api/books/:asin/comments/';
@@ -43,7 +46,7 @@ console.log(result);
         <CommentList 
         data= {result}
         />
-        <AddComment />
+        <AddComment elementId={elementId}/>
         
       
     </div>

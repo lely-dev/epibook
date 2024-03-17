@@ -7,7 +7,7 @@ import CommentArea from '../CommentArea/CommentArea';
 
 export default function SingleBook(props) {
 
-const {title, img}= props;
+const {title, img, elementId}= props;
 
 const [selected, setSelected] = useState(false);
 
@@ -24,7 +24,7 @@ const [selected, setSelected] = useState(false);
       <Card.Body border='danger' className='d-flex flex-column'>
         <Card.Title>{title}</Card.Title>
         <Button variant="primary" onClick={selectedBook}>Buy</Button>
-        {selected && <CommentArea />}
+        {selected && <CommentArea elementId={elementId}/>}
       </Card.Body>
       </Card>
       </Col>
