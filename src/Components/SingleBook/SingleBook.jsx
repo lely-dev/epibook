@@ -23,7 +23,7 @@ const [selected, setSelected] = useState(false);
       <Card.Img variant="top" src={img}/>
       <Card.Body border='danger' className='d-flex flex-column'>
         <Card.Title>{title}</Card.Title>
-        <Button variant="primary" onClick={selectedBook}>Buy</Button>
+        <Button variant="primary" onClick={selectedBook}>Reviews</Button>
         {selected && <CommentArea elementId={elementId}/>}
       </Card.Body>
       </Card>
