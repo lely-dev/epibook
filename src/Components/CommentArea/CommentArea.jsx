@@ -14,10 +14,14 @@ import SingleBook from '../SingleBook/SingleBook';
 export default function CommentArea(props) {
 
     const {elementId} = props;
+    console.log(elementId);
     
     const [result, setResult] = useState([]);
 
-    const apiEndpoint = 'https://striveschool-api.herokuapp.com/api/books/:asin/comments/';
+    const apiEndpoint = 'https://striveschool-api.herokuapp.com/api/books/`${elementId}`/comments/';
+
+    console.log(apiEndpoint);
+
 
 
 
@@ -31,7 +35,7 @@ export default function CommentArea(props) {
                     });
                 const json = await response.json();
                 setResult(json);
-                // console.log(json);
+                console.log(json);
             } catch (e) {
                 console.error(e);
             }
