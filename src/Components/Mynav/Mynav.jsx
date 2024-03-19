@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Mynav.css";
 
 import { Navbar, Container, Nav, Form, Row, Col, Button } from 'react-bootstrap';
 
 
-export default function MyNav(){
+export default function MyNav({onSearch}){
+
+
 
 
   return(
@@ -17,14 +19,14 @@ export default function MyNav(){
           <Nav.Link href="#home">About</Nav.Link>
           <Nav.Link href="#link">Browse</Nav.Link>
         </Nav>
-        <Form inline>
+        <Form>
           <Row>
             <Col xs="auto">
               <Form.Control
                 type="text"
                 placeholder="Search"
                 className=" mr-sm-2"
-                onChange={(e) => lookForBook(e.target.value)}
+                onKeyUp={(e) => onSearch(e.target.value)}
               />
             </Col>
             <Col xs="auto">

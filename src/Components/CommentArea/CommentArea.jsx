@@ -57,7 +57,7 @@ export default function CommentArea(props) {
         <CommentList 
         data= {result}
         />
-        <AddComment elementId={elementId}/>
+        <AddComment elementId={elementId} loadData={fetchData}/>
         
       
     </div>

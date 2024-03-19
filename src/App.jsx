@@ -4,9 +4,8 @@ import Mynav from './Components/Mynav/Mynav';
 import Jumbotron from './Components/Jumbotron/Jumbotron';
 import AllTheBooks from './Components/AllTheBooks/AllTheBooks';
 import MyFooter from './Components/MyFooter/MyFooter';
-import Data from "../Data/fantasy.json";
 import { useState } from 'react';
-
+import Data from './Components/Data/fantasy.json'
 
 function App() {
   
@@ -22,13 +21,13 @@ function App() {
     setBooks(filteredBooks);
   }
 
+
+
   // handleChange={(e) => this.handleChange(e)}
 
   return(
     <>
-      <Mynav 
-      value={inputTitle}
-      onChange={(e) => lookForBook(e.target.value)}/>
+      <Mynav onSearch={lookForBook}/>
       <Jumbotron />
       <div className='container-fluid'>
           <AllTheBooks 

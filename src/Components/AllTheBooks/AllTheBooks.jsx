@@ -1,7 +1,6 @@
 import React from "react";
 import "./AllTheBooks.css";
 // import { Form, Col, Row } from 'react-bootstrap';
-import { useState } from 'react';
 // import Data from "../Data/fantasy.json";
 import SingleBook from "../SingleBook/SingleBook";
 
