@@ -1,20 +1,20 @@
-import React from 'react'
-import SingleComment from './SingleComment';
-
-
+import React from "react";
+import SingleComment from "./SingleComment";
 
 export default function CommentList(props) {
-  
-  const {data} = props;
-
+  const { data, loadData } = props;
+  console.log(data);
   return (
     <>
-    {data.map((item) =>
-    <SingleComment 
-    key = {item.elementId}
-    comment = {item.comment}
-    rate = {item.rate}/>
-    )}
+      {data.map((item) => (
+        <SingleComment
+          key={item.elementId}
+          comment={item.comment}
+          rate={item.rate}
+          id={item._id}
+          loadData={loadData}
+        />
+      ))}
     </>
-  )
+  );
 }
