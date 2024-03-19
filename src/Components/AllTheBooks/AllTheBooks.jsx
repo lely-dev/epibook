@@ -1,29 +1,32 @@
 import React from "react";
 import "./AllTheBooks.css";
-import { Form, Col, Row } from 'react-bootstrap';
+// import { Form, Col, Row } from 'react-bootstrap';
 import { useState } from 'react';
-import Data from "../Data/fantasy.json";
+// import Data from "../Data/fantasy.json";
 import SingleBook from "../SingleBook/SingleBook";
 
 
-export default function AllTheBooks() {
 
-  const [inputTitle, setInputTitle] = useState("");
-  const [books, setBooks] = useState(Data);
+export default function AllTheBooks(props) {
+
+  const {books} = props;
+
+//   const [inputTitle, setInputTitle] = useState("");
+//   const [books, setBooks] = useState(Data);
  
 
- function lookForBook(e){
-    setInputTitle(e);
-    let filteredBooks = Data.filter((book) =>
-    book.title.toLowerCase().includes(inputTitle.toLowerCase()));
-    setBooks(filteredBooks);
-  }
+//  function lookForBook(e){
+//     setInputTitle(e);
+//     let filteredBooks = Data.filter((book) =>
+//     book.title.toLowerCase().includes(inputTitle.toLowerCase()));
+//     setBooks(filteredBooks);
+//   }
   
 
 
     return (
       <>
-      <div className="container-fluid">
+      {/* <div className="container-fluid">
           <Form>
               <Row>
                 <Form.Group as={Col} md="4" controlId="validationCustom01">
@@ -39,7 +42,7 @@ export default function AllTheBooks() {
               </Row>
               
           </Form>
-      </div>
+      </div> */}
       
       
       <div className='row' id='books-list'>
