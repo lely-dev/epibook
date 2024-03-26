@@ -15,8 +15,9 @@ export default function CommentArea(props) {
   const [result, setResult] = useState([]);
 
   const apiEndpoint = `https://striveschool-api.herokuapp.com/api/books/${elementId}/comments/`;
+  console.log(apiEndpoint);
 
-  async function fetchData() {
+  const fetchData = async () => {
     try {
       const response = await fetch(apiEndpoint, {
         headers: {
@@ -39,18 +40,16 @@ export default function CommentArea(props) {
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   useEffect(() => {
     fetchData();
-  }, []);
-
-  // console.log(result);
+  }, [elementId]);
 
   return (
     <div>
-      <CommentList data={result} loadData={fetchData} />
       <AddComment elementId={elementId} loadData={fetchData} />
+      {elementId && <CommentList data={result} loadData={fetchData} />}
     </div>
   );
 }
