@@ -1,22 +1,12 @@
 import React, { useContext } from "react";
 import { DarkMode } from "../../Context/DarkModeProvider";
-import {
-  A,
-  Col,
-  Row,
-  P,
-  Li,
-  Ul,
-  H4,
-  Container,
-  CardFooter,
-} from "react-bootstrap";
+import { A, Col, Row, P, Li, Ul, H4, Container } from "react-bootstrap";
 
 export default function MyFooter() {
   const { theme } = useContext(DarkMode);
 
   return (
-    <Container>
+    <Container fluid bg={theme} variant={theme}>
       <Row>
         <Col>
           <h4>Services</h4>

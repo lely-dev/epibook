@@ -1,15 +1,15 @@
 
-#books-list.row div.card:hover{
+div.card:hover{
     box-shadow: 3px 3px 20px rgb(178, 178, 178);
      
  }
 
- #books-list.row div.card img.card-img-top{
+ div.card img.card-img-top{
  height: 300px;
  object-fit: cover;
 }
 
-#books-list.row div.card div.card-body div.card-title{
+div.card div.card-body div.card-title{
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

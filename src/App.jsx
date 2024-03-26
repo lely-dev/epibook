@@ -10,6 +10,7 @@ import { DarkMode } from "./Context/DarkModeProvider";
 import { Container } from "react-bootstrap";
 import CommentArea from "./Components/CommentArea/CommentArea";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NotFound from "./Components/NotFound/NotFound";
 
 function App() {
   //variabili per cercare i libri
@@ -25,23 +26,18 @@ function App() {
     setBooks(filteredBooks);
   }
 
-  // handleChange={(e) => this.handleChange(e)}
-
   const [theme, setTheme] = useState("light");
-  // const { theme, setTheme } = useContext(DarkMode);
 
   return (
     <>
       <BrowserRouter>
-        <Mynav onSearch={lookForBook} theme={theme} onClick={setTheme} />
+        <Mynav onSearch={lookForBook} onClick={setTheme} />
         <Routes>
-          <Route
-            path="/"
-            element={<AllTheBooks books={books} theme={theme} />}
-          />
+          <Route path="/" element={<AllTheBooks books={books} />} />
           <Route />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
-        <MyFooter theme={theme} />
+        <MyFooter />
       </BrowserRouter>
     </>
   );
